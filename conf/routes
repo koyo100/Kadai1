@@ -1,0 +1,53 @@
+# TodoList
+GET     /                           controllers.todolist.TodoListController.index
+
+# Formapp
+## Normal
+GET     /formapp/messages           controllers.formapp.FormappController.list
+GET     /formapp/messages/:id       controllers.formapp.FormappController.entry(id: Int)
+GET     /formapp/register           controllers.formapp.FormappController.startRegistration
+POST    /formapp/register/name      controllers.formapp.FormappController.registerName
+POST    /formapp/register/gender    controllers.formapp.FormappController.registerGender
+POST    /formapp/register/message   controllers.formapp.FormappController.registerMessage
+POST    /formapp/register/confirm   controllers.formapp.FormappController.confirm
+GET     /formapp                    controllers.Default.redirect(to = "/formapp/messages")
+
+GET     /todolist/account         controllers.todolist.TodoListController.Login
+GET     /todolist/account/register         controllers.todolist.TodoListController.Account
+POST    /todolist/account/register/confirm         controllers.todolist.TodoListController.AcCom
+POST    /todolist/account/register/check        controllers.todolist.TodoListController.AcCheck
+
+GET     /todolist/messages      controllers.todolist.TodoListController.list
+GET     /todolist/messages/logout      controllers.todolist.TodoListController.logout
+GET     /todolist/messages/acinfo   controllers.todolist.TodoListController.accountInfo
+GET     /todolist/messages/acinfo/pass   controllers.todolist.TodoListController.accountPass
++nocsrf
+POST    /todolist/messages/acinfo/pass/password  controllers.todolist.TodoListController.accountPassChange
+GET     /todolist/messages/acinfo/delete        controllers.todolist.TodoListController.accountDelete
+
+GET     /todolist/messages/:id     controllers.todolist.TodoListController.entry(id: Int)
+GET     /todolist/messages/:id/delete       controllers.todolist.TodoListController.delete(id: Int)
+GET     /todolist/messages/:id/des  controllers.todolist.TodoListController.editMessage(id: Int)
+GET     /todolist/messages/:id/tit  controllers.todolist.TodoListController.editTitle(id:Int)
+
+POST   /todolist/messages/:id/description  controllers.todolist.TodoListController.saveE(id:Int)
+POST   /todolist/messages/:id/title  controllers.todolist.TodoListController.saveT(id:Int)
+
+
+
+GET     /todolist/register           controllers.todolist.TodoListController.startRegistration
+POST    /todolist/register/title     controllers.todolist.TodoListController.registerName
++nocsrf
+POST    /todolist/register/description   controllers.todolist.TodoListController.registerMessage
++nocsrf
+POST    /todolist/register/confirm  controllers.todolist.TodoListController.confirm
+
+GET     /todolist                    controllers.Default.redirect(to = "/todolist/messages")
+
+
+
+
+# Resources
+GET     /robot.txt                  controllers.Default.notFound
+GET     /favicon.ico                controllers.Assets.at(path="/public/images", file="favicon.png")
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

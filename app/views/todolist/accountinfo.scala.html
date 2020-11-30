@@ -1,0 +1,22 @@
+@(account: models.todolist.Account)
+
+@views.html.todolist.main("登録済みメッセージ") {
+<table class="w3-table">
+    <tr>
+        <th>ユーザーネーム</th>
+        <td>@account.name</td>
+    </tr>
+    <tr>
+        <td><a href="/todolist/messages/acinfo/pass">パスワード変更</a></td>
+
+    </tr>
+    <tr>
+        <th>ユーザー消去</th>
+        <td><a href="/todolist/messages/acinfo/delete">ユーザアカウントを消去する</a></td>
+        <td></td>
+    </tr>
+
+
+</table>
+<a href="/todolist/messages">戻る</a>
+}

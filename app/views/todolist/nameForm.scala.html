@@ -1,0 +1,19 @@
+@(request: RequestHeader)
+
+@import helper._
+
+@title = @{request.session.get("todolist::title").getOrElse("")}
+
+
+@views.html.todolist.main("確認画面") {
+<dl>
+
+</dl>
+<p>タイトル入力</p>
+<form action="/todolist/register/title" method="POST">
+
+    <input type="text" name="title" value="@title">
+    <input type="submit" value="OK">
+</form>
+
+}

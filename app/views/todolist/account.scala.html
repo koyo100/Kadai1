@@ -1,0 +1,26 @@
+@(implicit request: RequestHeader)
+
+@import helper._
+
+@name = @{request.session.get("todolist::name").getOrElse("")}
+@password = @{request.session.get("todolist::password").getOrElse("")}
+
+
+@views.html.todolist.main("") {
+
+
+<p>以上の内容でアカウント登録します</p>
+<form action="/todolist/account/register/confirm" method="POST">
+    @CSRF.formField
+    <p></p>
+    <p><td>ユーザーネーム</td></p>
+    <p><textarea name="name">@name</textarea></p>
+    <p><td>パスワード</td></p>
+    <p><textarea name="password">@password</textarea></p>
+    <input type="submit" value="アカウント登録">
+</form>
+
+
+
+
+}

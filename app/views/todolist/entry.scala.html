@@ -1,0 +1,22 @@
+@(entry: models.todolist.Task)
+
+@views.html.todolist.main("登録済みメッセージ") {
+    <table class="w3-table">
+
+        <tr>
+            <th>タイトル名</th>
+            <td>@entry.title</td>
+            <td><a href="/todolist/messages/@entry.id/tit">変更</a></td>
+
+        </tr>
+        <tr>
+            <th>内容</th>
+            <td>@entry.description</td>
+            <td><a href="/todolist/messages/@entry.id/des">変更</a></td>
+            <td></td>
+        </tr>
+
+
+    </table>
+    <a href="/todolist/messages">戻る</a>
+}

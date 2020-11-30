@@ -1,0 +1,20 @@
+@(implicit request: RequestHeader)
+
+@import helper._
+
+@password = @{request.session.get("todolist::password").getOrElse("")}
+
+@views.html.todolist.main("確認画面") {
+<dl>
+
+</dl>
+<p>以上の内容で登録します</p>
+<form action="/todolist/messages/acinfo/pass/password" method="POST">
+    @CSRF.formField
+    <textarea name="password">@password</textarea>
+    <input type="submit" value="OK">
+</form>
+
+}
+
+

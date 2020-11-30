@@ -1,0 +1,17 @@
+@(task: models.todolist.Task,request: RequestHeader)
+
+@import helper._
+
+@views.html.todolist.main("確認画面") {
+    <dl>
+        <dt>タイトル名</dt>
+        <dd>@task.title</dd>
+        <dt>内容</dt>
+        <dd>@task.description</dd>
+    </dl>
+    <p>以上の内容で登録します</p>
+    <form action="/todolist/register/confirm" method="POST">
+
+        <input type="submit" value="タスク登録">
+    </form>
+}

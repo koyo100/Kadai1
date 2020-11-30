@@ -1,0 +1,21 @@
+@(entry: models.todolist.Task)(request: RequestHeader)
+
+@import helper._
+
+@description = @{request.session.get("todolist::description").getOrElse("")}
+
+
+@views.html.todolist.main("確認画面") {
+<dl>
+
+</dl>
+<p>以上の内容で登録します</p>
+<form action="/todolist/messages/@entry.id/description" method="POST">
+
+    <textarea name="description">@description</textarea>
+    <input type="submit" value="OK">
+</form>
+
+}
+
+
